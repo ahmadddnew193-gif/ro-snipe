@@ -43,7 +43,7 @@ def checkuser(username: str,length,amount):
             itera+=1
             if itera == amount:
                     STOp = False
-
+                    st.dataframe(available_user)
 
                 
         else:
@@ -106,3 +106,4 @@ if checkbox:
                     st.error(f"Error: {e}")            
 
             
+
