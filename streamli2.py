@@ -125,5 +125,6 @@ if checkbox:
 
                 except Exception as e:
                     st.error(f"Error: {e}") 
-            chart.dataframe(available_user)
+            st.dataframe(available_user)
             STOp = True           
+
