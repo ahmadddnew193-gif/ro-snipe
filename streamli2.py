@@ -122,10 +122,11 @@ if checkbox:
                             chart.dataframe(df1)
                         elif itera == amount_users:
                 df2 = pd.DataFrame({"Numbers": itera,
-                                                 "Users": available_user})
+                                 "Users": available_user})
                              
                 chart.dataframe(df2)
                 STOp = True
                 except Exception as e:
                     st.error(f"Error: {e}")            
+
 
