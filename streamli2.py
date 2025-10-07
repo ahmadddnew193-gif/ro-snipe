@@ -102,10 +102,10 @@ if checkbox:
                         st.error(f"Error: {e}")
                 
 
-                st.dataframe(custom_users)
-                STOp = True
+            st.dataframe(custom_users)
+            STOp = True
 
-                custom_name = "placeholder"
+            custom_name = "placeholder"
         if custom_mode == 0:
             custom = False
             while int(amount_users) != itera and STOp != True:
