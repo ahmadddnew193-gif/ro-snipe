@@ -101,8 +101,9 @@ if checkbox:
                 
                         st.error(f"Error: {e}")
                 
-
-            st.dataframe(custom_users)
+            customdf = pd.DataFrame({"Index": len(custom_users),
+                                     "Names": custom_users})
+            st.dataframe(customdf)
             STOp = True
 
             custom_name = "placeholder"
