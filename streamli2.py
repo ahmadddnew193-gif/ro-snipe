@@ -91,26 +91,27 @@ if checkbox:
             store_name = custom_name
         if store_name != "e":
             while itera != amount_users:
-                print(amount_users)
-                try:
-                    customuser=user_gen(5,numbers,True,customusername=store_name)
-                    checkuser(customuser,67,amount_users)
-                except Exception as e:
-            
-            
-                    st.error(f"Error: {e}")
-            
+                if custom == True:
+                    print(amount_users)
+                    try:
+                        customuser=user_gen(5,numbers,True,customusername=store_name)
+                        checkuser(customuser,67,amount_users,custom=True)
+                    except Exception as e:
+                
+                
+                        st.error(f"Error: {e}")
+                
 
-            st.dataframe(custom_users)
-            STOp = True
+                st.dataframe(custom_users)
+                STOp = True
 
-            custom_name = "placeholder"
+                custom_name = "placeholder"
         if custom_mode == 0:
             custom = False
             while int(amount_users) != itera and STOp != True:
                 try:
                     randomuser = user_gen(int(user_length),numbers,custom,store_name)
-                    checkuser(randomuser,int(user_length),int(amount_users))
+                    checkuser(randomuser,int(user_length),int(amount_users),custom=False)
                     if date:
                         df1 = pd.DataFrame({"Numbers": itera,
                                             "User": available_user})
