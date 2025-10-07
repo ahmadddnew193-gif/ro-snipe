@@ -41,9 +41,7 @@ def checkuser(username: str,length,amount):
             available_user.append(username)
             time.sleep(0.01)
             itera+=1
-            if itera == amount:
-                    STOp = False
-                    st.dataframe(available_user)
+
 
                 
         else:
@@ -88,7 +86,7 @@ if checkbox:
         if custom_name != "placeholder":
             store_name = custom_name
         if store_name != "e":
-            for i in range(int(amount_users)):
+            while itera != amount_users:
                 print(amount_users)
                 try:
                     customuser=user_gen(5,numbers,True,customusername=store_name)
@@ -102,8 +100,18 @@ if checkbox:
                 try:
                     randomuser = user_gen(int(user_length),numbers,custom,store_name)
                     checkuser(randomuser,int(user_length),int(amount_users))
+                    if date:
+                        df1 = pd.DataFrame({"Numbers": itera,
+                                            "User": available_user})
+                        if itera != amount_users:
+                            chart = st.empty()
+                            print(available_user)
+                            chart.dataframe(df1)
+                        elif itera == amount_users:
+                             df2 = pd.DataFrame({"Numbers": itera,
+                                                 "Users": available_user})
+                             
+                             chart.dataframe(df2)
+                             STOp = True
                 except Exception as e:
                     st.error(f"Error: {e}")            
-
-            
-
