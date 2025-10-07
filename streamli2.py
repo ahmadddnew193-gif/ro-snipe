@@ -28,7 +28,7 @@ def user_gen(length: any,number: bool,customuser=False,customusername="placehold
             return customusername3
 
 
-def checkuser(username: str,length,amount):
+def checkuser(username: str,length,amount,custom: bool):
     global itera
     url = f"https://auth.roblox.com/v1/usernames/validate?Username={username}&Birthday=2000-01-01"
 
@@ -38,7 +38,11 @@ def checkuser(username: str,length,amount):
         data = resp.json()
         if data["message"]=="Username is valid":
             st.success(f"Username is Available: {username} ,{itera+1}/{amount}" )
-            available_user.append(username)
+            if custom == False:
+                 
+                available_user.append(username)
+            else:
+                 custom_users.append(username)
             time.sleep(0.01)
             itera+=1
 
@@ -53,7 +57,7 @@ st.set_page_config(page_title="🎟Ro-User",layout="wide")
 
 st.title("Roblox User Sniper")
 
-
+custom_users = []
 user_length = st.number_input("User Lenght",min_value=3,value=5)
 amount_users = st.number_input("Amount of Users",min_value=1,value=1)
 number_mode = st.number_input("Use Numbers",min_value=0,max_value=1,value=1)
@@ -92,7 +96,14 @@ if checkbox:
                     customuser=user_gen(5,numbers,True,customusername=store_name)
                     checkuser(customuser,67,amount_users)
                 except Exception as e:
+            
+            
                     st.error(f"Error: {e}")
+            
+
+            st.dataframe(custom_users)
+            STOp = True
+
             custom_name = "placeholder"
         if custom_mode == 0:
             custom = False
