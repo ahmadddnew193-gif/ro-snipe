@@ -75,7 +75,7 @@ STOp = False
 
 
 if st.checkbox("Status"):
-        while start = 1:
+        while start == 1:
                 try:
                         status = requests.get("https://www.roblox.com")
                         if status.status_code == 200:
@@ -144,6 +144,7 @@ if checkbox:
                     st.error(f"Error: {e}") 
             st.dataframe(available_user)
             STOp = True           
+
 
 
 
