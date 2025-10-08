@@ -78,7 +78,7 @@ if st.checkbox("Status"):
                 try:
                         status = requests.get("https://www.roblox.com")
                         if status.status_code == 200:
-                                playaudio.playaudio("mi-bombo.mp3")
+                                st.success("yes")
                         else:
                                 st.info("cooked")
                 except Exception as e:
@@ -140,6 +140,7 @@ if checkbox:
                     st.error(f"Error: {e}") 
             st.dataframe(available_user)
             STOp = True           
+
 
 
 
