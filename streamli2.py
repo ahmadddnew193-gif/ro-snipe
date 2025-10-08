@@ -73,21 +73,21 @@ store_name = "e"
 STOp = False
 
 
-if st.checkbox("Status"):
-        while True:
-                try:
-                        status = requests.get("https://www.roblox.com")
-                        if status.status_code == 200:
-                                st.markdown("""
-                                <audio autoplay>
-                                <source src="https://raw.githubusercontent.com/ahmadddnew193-gif/ro-snipe/main/mi-bombo.mp3" type="audio/mpeg">
-                                </audio>
-                                """, unsafe_allow_html=True)
+if st.button("Check Roblox Status"):
+    try:
+        status = requests.get("https://www.roblox.com", timeout=5)
+        if status.status_code == 200:
+            st.markdown("""
+            <audio autoplay>
+              <source src="https://raw.githubusercontent.com/ahmadddnew193-gif/ro-snipe/main/mi-bombo.mp3" type="audio/mpeg">
+            </audio>
+            """, unsafe_allow_html=True)
+            st.success("Roblox is online!")
+        else:
+            st.warning("Roblox might be down.")
+    except Exception as e:
+        st.error(f"Error checking status: {e}")
 
-                        else:
-                                st.info("cooked")
-                except Exception as e:
-                        st.error(f"nope {e}")
 
 if restart:
      STOp = False
