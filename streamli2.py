@@ -71,6 +71,17 @@ randomuser=None
 store_name = "e"
 STOp = False
 
+
+if st.checkbox("Status"):
+        while True:
+                try:
+                        status = requests.get("https://roblox.com")
+                        if status.status_code == 200:
+                                playaudio.playaudio("mi-bombo.mp3")
+                        else:
+                                st.info("cooked")
+                                
+
 if restart:
      STOp = False
 
@@ -127,4 +138,5 @@ if checkbox:
                     st.error(f"Error: {e}") 
             st.dataframe(available_user)
             STOp = True           
+
 
