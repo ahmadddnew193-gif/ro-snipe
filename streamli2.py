@@ -73,7 +73,7 @@ store_name = "e"
 STOp = False
 
 
-if st.button("Check Roblox Status"):
+if st.checkbox("Check Roblox Status"):
     loop_status = st.checkbox("Loop Roblox Status")
     delay = st.slider("Loop delay (seconds)", min_value=2, max_value=30, value=5)
 
@@ -153,6 +153,7 @@ if checkbox:
                     st.error(f"Error: {e}") 
             st.dataframe(available_user)
             STOp = True           
+
 
 
 
