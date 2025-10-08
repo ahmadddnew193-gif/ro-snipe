@@ -76,7 +76,7 @@ STOp = False
 if st.checkbox("Status"):
         while True:
                 try:
-                        status = requests.get("https://roblox.com")
+                        status = requests.get("https://www.roblox.com")
                         if status.status_code == 200:
                                 playaudio.playaudio("mi-bombo.mp3")
                         else:
@@ -140,6 +140,7 @@ if checkbox:
                     st.error(f"Error: {e}") 
             st.dataframe(available_user)
             STOp = True           
+
 
 
 
