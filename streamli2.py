@@ -93,7 +93,7 @@ if st.checkbox("Check Roblox Status"):
             st.error(f"Error checking status: {e}")
 
         time.sleep(delay)
-        st.experimental_rerun()
+        st.rerun()
 
 
 
@@ -153,6 +153,7 @@ if checkbox:
                     st.error(f"Error: {e}") 
             st.dataframe(available_user)
             STOp = True           
+
 
 
 
