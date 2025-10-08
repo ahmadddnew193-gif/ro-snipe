@@ -74,19 +74,27 @@ STOp = False
 
 
 if st.button("Check Roblox Status"):
-    try:
-        status = requests.get("https://www.roblox.com", timeout=5)
-        if status.status_code == 200:
-            st.markdown("""
-            <audio autoplay>
-              <source src="https://raw.githubusercontent.com/ahmadddnew193-gif/ro-snipe/main/mi-bombo.mp3" type="audio/mpeg">
-            </audio>
-            """, unsafe_allow_html=True)
-            st.success("Roblox is online!")
-        else:
-            st.warning("Roblox might be down.")
-    except Exception as e:
-        st.error(f"Error checking status: {e}")
+    loop_status = st.checkbox("Loop Roblox Status")
+    delay = st.slider("Loop delay (seconds)", min_value=2, max_value=30, value=5)
+
+    if loop_status:
+        try:
+            status = requests.get("https://www.roblox.com", timeout=5)
+            if status.status_code == 200:
+                st.markdown("""
+                <audio autoplay>
+                <source src="https://raw.githubusercontent.com/ahmadddnew193-gif/ro-snipe/main/mi-bombo.mp3" type="audio/mpeg">
+                </audio>
+                """, unsafe_allow_html=True)
+                st.success("✅ Roblox is online!")
+            else:
+                st.warning("⚠️ Roblox might be down.")
+        except Exception as e:
+            st.error(f"Error checking status: {e}")
+
+        time.sleep(delay)
+        st.experimental_rerun()
+
 
 
 if restart:
