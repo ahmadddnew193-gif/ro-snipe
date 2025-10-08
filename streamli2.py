@@ -7,6 +7,7 @@ import random
 import pandas as pd
 session = requests.session()
 ses2=requests.session()
+start = 1
 itera = 0
 available_user = []
 def user_gen(length: any,number: bool,customuser=False,customusername="placeholder"):
@@ -74,18 +75,21 @@ STOp = False
 
 
 if st.checkbox("Status"):
-        while True:
+        while start = 1:
                 try:
                         status = requests.get("https://www.roblox.com")
                         if status.status_code == 200:
                                 st.audio("https://raw.githubusercontent.com/ahmadddnew193-gif/ro-snipe/main/mi-bombo.mp3")
+                                start = 0
                         else:
                                 st.info("cooked")
                 except Exception as e:
                         st.error(f"nope {e}")
 
 if restart:
+     start = 1
      STOp = False
+        
 
 
 if checkbox:
@@ -140,6 +144,7 @@ if checkbox:
                     st.error(f"Error: {e}") 
             st.dataframe(available_user)
             STOp = True           
+
 
 
 
