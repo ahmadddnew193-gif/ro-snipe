@@ -80,7 +80,8 @@ if st.checkbox("Status"):
                                 playaudio.playaudio("mi-bombo.mp3")
                         else:
                                 st.info("cooked")
-                                
+                except Exception as e:
+                        st.error(f"nope {e}")
 
 if restart:
      STOp = False
@@ -138,5 +139,6 @@ if checkbox:
                     st.error(f"Error: {e}") 
             st.dataframe(available_user)
             STOp = True           
+
 
 
