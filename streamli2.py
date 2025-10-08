@@ -77,7 +77,7 @@ if st.checkbox("Check Roblox Status"):
     loop_status = st.checkbox("Loop Roblox Status")
     delay = st.slider("Loop delay (seconds)", min_value=2, max_value=30, value=5)
 
-    if loop_status:
+    while loop_status:
         try:
             status = requests.get("https://www.roblox.com", timeout=5)
             if status.status_code == 200:
@@ -93,7 +93,6 @@ if st.checkbox("Check Roblox Status"):
             st.error(f"Error checking status: {e}")
 
         time.sleep(delay)
-        st.rerun()
 
 
 
@@ -153,6 +152,7 @@ if checkbox:
                     st.error(f"Error: {e}") 
             st.dataframe(available_user)
             STOp = True           
+
 
 
 
