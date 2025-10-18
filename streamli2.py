@@ -58,13 +58,14 @@ randomuser = None
 store_name = "e"
 STOp = False
 count1 = 0
+iterate_in = st.number_input("Amount: ",min_value = 1,value=10)
 
 if st.checkbox("Amount of Users",key="AMOUNTT"):
     SURe = st.checkbox("U sure?")
     while SURe:
-        time.sleep(0.01)
+
         try:
-            response = s1.get(url=f"https://www.roblox.com/users/{count1}/profile",timeout=5)
+            response = s1.get(url=f"https://www.roblox.com/users/{count1}/profile")
             if response.status_code == 200:
                 st.markdown("""
                 <audio autoplay>
@@ -73,6 +74,9 @@ if st.checkbox("Amount of Users",key="AMOUNTT"):
                 """, unsafe_allow_html=True)
                 st.success("✅ Roblox is online!")
                 st.success(f"User Id: {count1}")
+                count1 += int(iterate_in)
+            elif response.status_code = 404:
+                st.info(f"User Id: {count1},is banned or terminated")
 
 
         except Exception as e:
@@ -144,7 +148,4 @@ if checkbox:
                 st.error(f"Error: {e}")
         st.dataframe(available_user)
         STOp = True
-
-
-
 
