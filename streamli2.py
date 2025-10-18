@@ -65,7 +65,7 @@ if st.checkbox("Amount of Users",key="AMOUNTT"):
     while SURe:
 
         try:
-            response = s1.get(url=f"https://www.roblox.com/users/{count1}/profile")
+            response = s1.get(url=f"https://www.roblox.com/users/{count1}/profile",timeout=5)
             if response.status_code == 200:
                 st.markdown("""
                 <audio autoplay>
@@ -148,5 +148,6 @@ if checkbox:
                 st.error(f"Error: {e}")
         st.dataframe(available_user)
         STOp = True
+
 
 
