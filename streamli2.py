@@ -59,22 +59,24 @@ store_name = "e"
 STOp = False
 count1 = 0
 
-while st.checkbox("Amount of Users"):
-    try:
-        response = s1.get(url=f"https://www.roblox.com/users/{count1}/profile")
-        if response.status_code == 200:
-            st.markdown("""
-            <audio autoplay>
-            <source src="https://raw.githubusercontent.com/ahmadddnew193-gif/ro-snipe/main/mi-bombo.mp3" type="audio/mpeg">
-            </audio>
-            """, unsafe_allow_html=True)
-            st.success("✅ Roblox is online!")
-            st.success(f"User Id: {count1}")
-            count1 += 1
-        else:
-            st.info(f"User Id: {count1} may be terminated or banned")
-    except Exception as e:
-        st.error(e)
+if st.checkbox("Amount of Users"):
+    while st.checkbox("sure?"):
+
+        try:
+            response = s1.get(url=f"https://www.roblox.com/users/{count1}/profile")
+            if response.status_code == 200:
+                st.markdown("""
+                <audio autoplay>
+                <source src="https://raw.githubusercontent.com/ahmadddnew193-gif/ro-snipe/main/mi-bombo.mp3" type="audio/mpeg">
+                </audio>
+                """, unsafe_allow_html=True)
+                st.success("✅ Roblox is online!")
+                st.success(f"User Id: {count1}")
+                count1 += 1
+            else:
+                st.info(f"User Id: {count1} may be terminated or banned")
+        except Exception as e:
+            st.error(e)
 
 if st.checkbox("Check Roblox Status"):
     loop_status = st.checkbox("Loop Roblox Status")
@@ -142,3 +144,4 @@ if checkbox:
                 st.error(f"Error: {e}")
         st.dataframe(available_user)
         STOp = True
+
