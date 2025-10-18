@@ -60,7 +60,8 @@ STOp = False
 count1 = 0
 
 if st.checkbox("Amount of Users",key="AMOUNTT"):
-    while st.checkbox("sure?",key="SURE"):
+    SURe = st.checkbox("U sure?")
+    while SURe:
 
         try:
             response = s1.get(url=f"https://www.roblox.com/users/{count1}/profile")
