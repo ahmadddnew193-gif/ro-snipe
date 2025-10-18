@@ -57,7 +57,7 @@ def checkuser(username: str,length,amount,custom: bool):
 st.set_page_config(page_title="🎟Ro-User",layout="wide")
 
 st.title("Roblox User Sniper")
-
+s1 = requests.session()
 custom_users = []
 user_length = st.number_input("User Lenght",min_value=3,value=5)
 amount_users = st.number_input("Amount of Users",min_value=1,value=1)
@@ -71,7 +71,25 @@ numbers = None
 randomuser=None
 store_name = "e"
 STOp = False
-
+count1 = 0
+while st.checkbox("Amount of Users"):
+        try:
+                s1.get(url=f"https://www.roblox.com/users/{count1}/profile")
+                if s1.status_code == 200:
+                        st.markdown("""
+                <audio autoplay>
+                <source src="https://raw.githubusercontent.com/ahmadddnew193-gif/ro-snipe/main/mi-bombo.mp3" type="audio/mpeg">
+                </audio>
+                """, unsafe_allow_html=True)
+                st.success("✅ Roblox is online!")
+                        st.success(f"User Id: {count1}")
+                        count1 += 1
+                else:
+                        st.info(f"User Id: {count} maybe terminated or banned")
+                        
+        except e as Exception:
+                st.error(e)
+        
 
 if st.checkbox("Check Roblox Status"):
     loop_status = st.checkbox("Loop Roblox Status")
@@ -152,6 +170,7 @@ if checkbox:
                     st.error(f"Error: {e}") 
             st.dataframe(available_user)
             STOp = True           
+
 
 
 
