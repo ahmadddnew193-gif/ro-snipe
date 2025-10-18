@@ -73,7 +73,8 @@ if st.checkbox("Amount of Users",key="AMOUNTT"):
                 """, unsafe_allow_html=True)
                 st.success("✅ Roblox is online!")
                 st.success(f"User Id: {count1}")
-                time.sleep(15)
+                if count1 % 20 == 0:
+                    time.sleep(10)
 
         except Exception as e:
             st.error(e)
