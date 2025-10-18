@@ -75,7 +75,7 @@ if st.checkbox("Amount of Users",key="AMOUNTT"):
                 st.success("✅ Roblox is online!")
                 st.success(f"User Id: {count1}")
                 count1 += int(iterate_in)
-            elif response.status_code = 404:
+            elif response.status_code == 404:
                 st.info(f"User Id: {count1},is banned or terminated")
 
 
@@ -148,4 +148,5 @@ if checkbox:
                 st.error(f"Error: {e}")
         st.dataframe(available_user)
         STOp = True
+
 
