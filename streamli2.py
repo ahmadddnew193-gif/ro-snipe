@@ -66,6 +66,9 @@ if st.checkbox("Amount of Users",key="AMOUNTT"):
         try:
             response = s1.get(url=f"https://www.roblox.com/users/{count1}/profile")
             if response.status_code == 200:
+                if count1 % 20 == 0:
+                    time.sleep(20)
+                    st.info("test")
                 st.markdown("""
                 <audio autoplay>
                 <source src="https://raw.githubusercontent.com/ahmadddnew193-gif/ro-snipe/main/mi-bombo.mp3" type="audio/mpeg">
@@ -73,8 +76,7 @@ if st.checkbox("Amount of Users",key="AMOUNTT"):
                 """, unsafe_allow_html=True)
                 st.success("✅ Roblox is online!")
                 st.success(f"User Id: {count1}")
-                if count1 % 20 == 0:
-                    time.sleep(10)
+
 
         except Exception as e:
             st.error(e)
