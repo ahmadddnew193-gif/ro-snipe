@@ -73,12 +73,13 @@ if st.checkbox("Amount of Users",key="AMOUNTT"):
                 """, unsafe_allow_html=True)
                 st.success("✅ Roblox is online!")
                 st.success(f"User Id: {count1}")
-                count1 += 1
+                
             else:
                 st.info(f"User Id: {count1} may be terminated or banned")
+        
         except Exception as e:
             st.error(e)
-
+        count1+=1
 if st.checkbox("Check Roblox Status"):
     loop_status = st.checkbox("Loop Roblox Status")
     delay = st.slider("Loop delay (seconds)", min_value=2, max_value=30, value=5)
