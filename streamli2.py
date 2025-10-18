@@ -74,8 +74,6 @@ if st.checkbox("Amount of Users",key="AMOUNTT"):
                 st.success("✅ Roblox is online!")
                 st.success(f"User Id: {count1}")
                 
-            else:
-                st.info(f"User Id: {count1} may be terminated or banned")
         
         except Exception as e:
             st.error(e)
