@@ -26,7 +26,7 @@ def user_gen(length: any, number: bool, customuser=False, customusername="placeh
 def checkuser(username: str, length, amount, custom: bool):
     global itera
     url = f"https://auth.roblox.com/v1/usernames/validate?Username={username}&Birthday=2000-01-01"
-    resp = session.get(url=url)
+    resp = session.get(url=url,timeout=5)
 
     if resp.status_code != 400:
         data = resp.json()
@@ -148,6 +148,7 @@ if checkbox:
                 st.error(f"Error: {e}")
         st.dataframe(available_user)
         STOp = True
+
 
 
 
